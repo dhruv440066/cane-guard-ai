@@ -51,6 +51,13 @@ h2 = m.fit(dtr, validation_data=dva, epochs=a.finetune_epochs, class_weight=cw, 
 y = np.array([l for _, l in te]); p = m.predict(dte).argmax(1)
 out = pathlib.Path(__file__).parent.parent / "backend/models"; out.mkdir(parents=True, exist_ok=True)
 m.save(out / "model.keras"); (out / "class_names.json").write_text(json.dumps(classes))
+try:
+    converter = tf.lite.TFLiteConverter.from_keras_model(m)
+    tflite_model = converter.convert()
+    (out / "model.tflite").write_bytes(tflite_model)
+    print("Exported TFLite model to", out / "model.tflite")
+except Exception as ex:
+    print("TFLite export notice:", ex)
 rep = classification_report(y, p, target_names=classes, output_dict=True, zero_division=0); cm = confusion_matrix(y, p)
 (out / "metrics.json").write_text(json.dumps({"report": rep, "confusion_matrix": cm.tolist(), "test_images": int(len(y))}, indent=1))
 acc = h1.history["accuracy"] + h2.history["accuracy"]; vac = h1.history["val_accuracy"] + h2.history["val_accuracy"]

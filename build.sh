@@ -17,10 +17,12 @@ python -m pip install --upgrade pip
 pip install -r backend/requirements.txt
 
 echo ">>> 3. Checking ML Model artifacts..."
-if [ -f "backend/models/model.keras" ]; then
-    echo "Model file found: backend/models/model.keras"
+if [ -f "backend/models/model.tflite" ]; then
+    echo "✓ TFLite model found: backend/models/model.tflite"
+elif [ -f "backend/models/model.keras" ]; then
+    echo "✓ Keras model found: backend/models/model.keras"
 else
-    echo "WARNING: backend/models/model.keras not found."
+    echo "WARNING: No model artifact found in backend/models/."
 fi
 
 echo "=========================================="

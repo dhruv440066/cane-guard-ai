@@ -1,8 +1,178 @@
 {
-"Healthy":{"description":"No visible disease symptoms in this image.","symptoms":["Uniform green leaf","No lesions, streaks or discoloration"],"causes":[],"management":["Continue routine monitoring"],"prevention":["Use healthy planting material","Maintain field sanitation"],"when_to_seek_help":"If symptoms appear later, consult a local agricultural extension officer."},
-"RedRot":{"description":"A fungal disease of sugarcane (Colletotrichum falcatum).","symptoms":["Red lesions on the midrib","Reddening with white patches inside stalks"],"causes":["Fungus Colletotrichum falcatum, often spread through infected seed cane"],"management":["Remove and destroy infected clumps","Follow local recommendations for any chemical treatment; product and dosage must follow official labels"],"prevention":["Use disease-free seed cane","Use resistant varieties recommended locally","Rotate crops"],"when_to_seek_help":"Contact your local agricultural officer if several plants are affected."},
-"Rust":{"description":"A fungal leaf disease (Puccinia species).","symptoms":["Small orange-brown pustules on leaves"],"causes":["Rust fungi (Puccinia spp.)"],"management":["Remove heavily infected leaves","Follow local recommendations for fungicides and official labels"],"prevention":["Plant resistant varieties","Avoid dense planting"],"when_to_seek_help":"Seek expert help if spread is rapid."},
-"Mosaic":{"description":"A viral disease causing mosaic patterns on leaves.","symptoms":["Light and dark green mottling on leaves"],"causes":["Sugarcane mosaic virus, spread by aphids and infected setts"],"management":["Remove infected plants","Control vectors per local advice"],"prevention":["Use virus-free planting material"],"when_to_seek_help":"Consult an expert before replanting from affected fields."},
-"Yellow":{"description":"Yellow leaf disease.","symptoms":["Yellowing of the leaf midrib and blade"],"causes":["Sugarcane yellow leaf virus; nutrient or water stress can look similar"],"management":["Confirm the cause with an expert"],"prevention":["Use healthy seed cane"],"when_to_seek_help":"Symptoms resemble nutrient stress; get a professional diagnosis."},
-"BacterialBlight":{"description":"A bacterial leaf disease.","symptoms":["Water-soaked streaks that turn brown"],"causes":["Bacterial infection; wet conditions favor spread"],"management":["Remove infected leaves; follow local guidance"],"prevention":["Avoid working in wet fields","Sanitize tools"],"when_to_seek_help":"Consult local experts if widespread."}
+  "Healthy": {
+    "name": "Healthy Sugarcane",
+    "pathogen": "None (Healthy Tissue)",
+    "description": "The leaf and stalk display healthy physiological characteristics with uniform green coloration, intact venation, and no signs of chlorosis, fungal pustules, or vascular discoloration.",
+    "symptoms": [
+      "Vibrant, uniform green leaf blades and midribs",
+      "Smooth stalk epidermis without internal or external reddening",
+      "Active vegetative growth with normal tillering and leaf unfurling",
+      "No necrotic spots, water-soaked lesions, or mosaic mottling"
+    ],
+    "causes": [
+      "Optimal soil nutrition (balanced N-P-K and micronutrients)",
+      "Adequate irrigation and well-drained root zone",
+      "Effective weed and borer pest control",
+      "Use of certified disease-free seed setts"
+    ],
+    "management": [
+      "Maintain regular field monitoring and scouting schedules",
+      "Ensure balanced fertilization according to soil test recommendations",
+      "Maintain clean cultivation and sanitize field harvesting equipment"
+    ],
+    "prevention": [
+      "Plant certified high-yielding resistant or tolerant varieties",
+      "Employ crop rotation with legumes or green manure crops",
+      "Ensure proper row spacing (1.2 to 1.5 m) for aeration and sunlight penetration"
+    ],
+    "when_to_seek_help": "Continue standard agronomic practices. If unexpected leaf discoloration, wilting, or lesions emerge during the monsoon or tillering stage, consult a local extension specialist."
+  },
+  "RedRot": {
+    "name": "Red Rot Disease",
+    "pathogen": "Colletotrichum falcatum (Glomerella tucumanensis)",
+    "description": "Known as the 'cancer of sugarcane', Red Rot is the most devastating fungal disease of sugarcane. It infects both the internal stalk vascular system and the leaf midribs, leading to catastrophic sucrose inversion, stem rotting, and crop lodging.",
+    "symptoms": [
+      "Internal stalk reddening with diagnostic transverse white patches across the pith",
+      "Dark red or reddish-brown lesions with straw-colored centers along the leaf midrib",
+      "Alcoholic or acidic fermentation odor when affected canes are split open",
+      "Sudden yellowing, drying, and downward drooping of top spindle leaves from margins inward"
+    ],
+    "causes": [
+      "Seed sett transmission through infected planting material",
+      "Fungal conidia carried by irrigation water, rain splash, and wind",
+      "Pathogen entry through root primordia, growth cracks, or stalk borer tunneling wounds",
+      "Waterlogged soil conditions and high humidity (above 80%)"
+    ],
+    "management": [
+      "Immediately uproot and incinerate all infected stools to prevent pathogen sporulation",
+      "Drain standing water immediately from infected field zones",
+      "Avoid ratooning heavily infected sugarcane fields",
+      "Disinfect cutting knives and implements with 10% sodium hypochlorite between rows",
+      "Apply approved protective fungicides (such as carbendazim or thiophanate-methyl) strictly following registered agricultural label specifications"
+    ],
+    "prevention": [
+      "Plant certified disease-resistant sugarcane varieties (e.g., Co 0238 substitutes or local resistant clones)",
+      "Treat seed setts with Moist Hot Air Treatment (MHAT at 54°C for 2.5 hours) or fungicide sett dipping before planting",
+      "Adopt a minimum 2-year crop rotation with paddy, maize, or leguminous crops",
+      "Avoid flood irrigation from diseased fields to healthy plots"
+    ],
+    "when_to_seek_help": "Contact your district agricultural officer or research station immediately upon detecting split-stalk reddening or clump wilting, as Red Rot can rapidly spread to adjacent farms."
+  },
+  "Rust": {
+    "name": "Sugarcane Rust",
+    "pathogen": "Puccinia melanocephala (Common Rust) / Puccinia kuehnii (Orange Rust)",
+    "description": "Sugarcane rust is a foliar fungal disease causing widespread chlorotic flecks that rupture into powdery brown pustules, drastically reducing photosynthetic area and tonnage.",
+    "symptoms": [
+      "Tiny, elongated yellowish or chlorotic flecks on both leaf surfaces",
+      "Flecks expand into reddish-brown or orange pustules (uredinia) parallel to leaf veins",
+      "Ruptured pustules release clouds of powdery orange-brown fungal spores upon touch",
+      "Severe infections cause leaves to curl, scorch, and prematurely desiccate, resembling frost burn"
+    ],
+    "causes": [
+      "Airborne urediniospores carried over long distances by wind currents",
+      "Extended leaf wetness (dew or light rain for 8-12 continuous hours)",
+      "Moderate temperatures (18°C to 28°C) paired with high relative humidity (>85%)",
+      "Dense canopy microclimate restricting airflow"
+    ],
+    "management": [
+      "Strip and safely dispose of heavily infected bottom canopy leaves during early infestation",
+      "Avoid overhead sprinkler irrigation that lengthens leaf moisture duration",
+      "Apply labeled agricultural fungicides (e.g., azoxystrobin, pyraclostrobin, or mancozeb) according to official local extension dosages if disease pressure crosses economic threshold"
+    ],
+    "prevention": [
+      "Select and cultivate rust-resistant sugarcane varieties suited to your agro-climatic zone",
+      "Optimize planting density to promote wind circulation and faster canopy drying",
+      "Avoid excessive nitrogen fertilization, which creates succulent tissue highly susceptible to rust fungi",
+      "Balance soil nutrition with adequate potassium (potash) to strengthen plant cell walls"
+    ],
+    "when_to_seek_help": "Seek professional diagnosis if orange pustules appear on young crops under 4 months old or if pustules cover more than 30% of the upper canopy foliage."
+  },
+  "Mosaic": {
+    "name": "Sugarcane Mosaic",
+    "pathogen": "Sugarcane Mosaic Virus (SCMV) / Sorghum Mosaic Virus",
+    "description": "A systemic viral infection causing distinctive mosaic patterns of contrasting dark and light green patches on leaves, stunting tillers, and depressing cane yield and sugar extraction.",
+    "symptoms": [
+      "Irregular patches of pale green, yellowish, or chlorotic islands contrasting against normal dark green leaf tissue",
+      "Mottled streaks running parallel to the midrib, most pronounced on young unfolding leaves",
+      "Severe stunting of stools, thin stalks with shortened internodes, and poor tillering",
+      "Occasional longitudinal red or necrotic striping on stalks in susceptible cultivars"
+    ],
+    "causes": [
+      "Transmission by aphid vectors (principally Rhopalosiphum maidis and Melanaphis sacchari) in a non-persistent manner",
+      "Use of infected seed cane from previously diseased stools",
+      "Mechanical transmission during knife cutting and sett preparation",
+      "Presence of collateral hosts including wild grasses, sorghum, and maize around the field perimeter"
+    ],
+    "management": [
+      "Rogue out and destroy infected young plants along with root systems during first 3 months of planting",
+      "Control aphid vector populations using integrated pest management and bio-rational insecticides if vector pressure is high",
+      "Clean harvesting tools with 5% trisodium phosphate (TSP) or alcohol disinfectant"
+    ],
+    "prevention": [
+      "Propagate only tissue-cultured virus-free plantlets or certified nursery setts",
+      "Eradicate grassy weeds (such as Sorghum halepense and Digitaria species) surrounding the field",
+      "Avoid intercropping or planting adjacent to susceptible sweet sorghum or maize crops",
+      "Switch to resistant commercial cultivars"
+    ],
+    "when_to_seek_help": "Consult an agricultural extension officer to confirm virus strain if mosaic symptoms appear across more than 5% of your cane nursery."
+  },
+  "Yellow": {
+    "name": "Sugarcane Yellow Leaf",
+    "pathogen": "Sugarcane Yellow Leaf Virus (SCYLV) / Sugarcane Yellow Leaf Phytoplasma",
+    "description": "A chronic vascular disease leading to intense yellowing of the central leaf midrib that spreads outward onto the lamina. It disrupts carbohydrate translocation, resulting in reduced juice purity and cane weight.",
+    "symptoms": [
+      "Prominent, bright yellow discoloration along the underside of the midrib on leaves 3 to 6 from top",
+      "Discoloration progresses to adjacent lamina tissue, followed by tip necrosis and leaf desiccation",
+      "Bunchy top appearance and shortened terminal internodes in advanced stages",
+      "Symptoms become most pronounced as cane reaches maturity (6 to 10 months of age)"
+    ],
+    "causes": [
+      "Primary transmission through the sugarcane aphid (Melanaphis sacchari)",
+      "Planting symptomless, chronically infected seed setts",
+      "Aggravated by moisture stress, water stagnation, or extreme summer heat"
+    ],
+    "management": [
+      "Differentiate from nitrogen deficiency or soil salinity (which affects older lower leaves first)",
+      "Provide light, frequent irrigation to reduce plant stress during hot dry spells",
+      "Manage aphid vector colonies in the cane nursery using recommended neem formulations or IPM sprays",
+      "Do not use stalks from symptomatic stools for future planting or ratoon cycles"
+    ],
+    "prevention": [
+      "Plant virus-tested tissue-culture plantlets or certified seed cane",
+      "Adopt hot water treatment (50°C for 2 hours) to suppress phytoplasma transmission",
+      "Maintain optimal soil fertility with balanced N, P, K, and micronutrients (especially zinc and iron)",
+      "Select varieties showing field tolerance or resistance"
+    ],
+    "when_to_seek_help": "Because Yellow Leaf symptoms closely resemble nutrient stress and moisture shock, obtain an extension officer's confirmation before making major management decisions."
+  },
+  "BacterialBlight": {
+    "name": "Bacterial Blight / Leaf Scald",
+    "pathogen": "Xanthomonas albilineans",
+    "description": "A serious bacterial vascular disease that causes diagnostic white 'pencil lines' along leaf veins, followed by severe leaf scalding, inward leaf curling, and side-shooting of stalks.",
+    "symptoms": [
+      "Narrow, well-defined white to yellowish pencil-line streaks along leaf veins running from margin to sheath",
+      "Broad necrotic bleaching or scalding of leaf tips, causing leaves to curl inward like a buggy whip",
+      "Abnormal sprouting of side shoots (lalas) on mature stalks from the base upwards",
+      "Internal vascular reddening in stalk nodal regions with reddish streaks in cross-sections"
+    ],
+    "causes": [
+      "Primary spread through contaminated cane harvest knives and mechanical harvesters",
+      "Infected seed setts harboring systemic bacterial populations",
+      "Bacterial exudate washed by rainfall and wind-driven storms into plant wounds and stomata",
+      "High humidity coupled with warm temperatures (25°C to 35°C)"
+    ],
+    "management": [
+      "Rogue and burn stools showing chronic white pencil lines or wilting immediately",
+      "Sterilize cutting implements frequently with 1% quaternary ammonium compound or fire flamed",
+      "Avoid cutting or handling crops when foliage is wet from rain or dew",
+      "Ensure prompt drainage in fields prone to water stagnation"
+    ],
+    "prevention": [
+      "Plant certified leaf-scald resistant cultivars",
+      "Subject seed cane to cold-soak followed by hot-water treatment (cold soak for 24 hours, then 50°C for 3 hours)",
+      "Establish dedicated disease-free nurseries away from commercial ratoon fields",
+      "Enforce strict farm biosecurity and tool sanitation"
+    ],
+    "when_to_seek_help": "Notify the local plant health authority immediately if narrow white pencil lines with leaf tip scalding appear in your seed multiplication plot."
+  }
 }

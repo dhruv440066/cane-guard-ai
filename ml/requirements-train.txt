@@ -1,0 +1,5 @@
+# Offline / Local Training Dependencies
+# Install with: pip install -r ml/requirements-train.txt
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+kagglehub>=0.2.0
