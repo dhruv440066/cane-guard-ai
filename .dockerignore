@@ -1,0 +1,14 @@
+node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.git/
+.gitignore
+backend/uploads/*
+!backend/uploads/.gitkeep
+caneguard.db
+backend/caneguard.db
+.env
+.env.local

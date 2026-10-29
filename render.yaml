@@ -1,0 +1,25 @@
+services:
+  # ============================================================================
+  # CaneGuard AI - Unified Full-Stack Web Service
+  # Builds Vite React Frontend + FastAPI CNN Backend into a single web service.
+  # ============================================================================
+  - type: web
+    name: cane-guard-ai
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: bash build.sh
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: CONF_THRESHOLD
+        value: "0.70"
+      - key: MAX_UPLOAD_MB
+        value: "8"
+      - key: CORS
+        value: "*"

@@ -1,0 +1,28 @@
+# Node dependencies & build
+node_modules/
+dist/
+frontend/dist/
+
+# Python environments & cache
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Local databases & uploads
+caneguard.db
+backend/caneguard.db
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
