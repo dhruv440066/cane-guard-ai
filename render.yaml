@@ -18,7 +18,9 @@ services:
       - key: NODE_VERSION
         value: 20.18.0
       - key: CONF_THRESHOLD
-        value: "0.70"
+        value: "0.50"
+      - key: MIN_PLANT_FRACTION
+        value: "0.04"
       - key: MAX_UPLOAD_MB
         value: "8"
       - key: CORS

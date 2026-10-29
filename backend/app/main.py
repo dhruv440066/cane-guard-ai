@@ -18,10 +18,11 @@ DB = Path(os.getenv("DB_PATH", str(DATA_DIR / "caneguard.db")))
 UP = Path(os.getenv("UPLOAD_DIR", str(DATA_DIR / "uploads")))
 UP.mkdir(parents=True, exist_ok=True)
 
-CONF_THRESHOLD = float(os.getenv("CONF_THRESHOLD", "0.70"))
+CONF_THRESHOLD = float(os.getenv("CONF_THRESHOLD", "0.50"))
 MAX_BYTES = int(os.getenv("MAX_UPLOAD_MB", "8")) * 1024 * 1024
 MIN_SIDE, MIN_BLUR, MIN_BRIGHT, MAX_BRIGHT = 128, 40.0, 40, 220
-MIN_GREEN = float(os.getenv("MIN_GREEN_FRACTION", "0.15"))
+MIN_PLANT = float(os.getenv("MIN_PLANT_FRACTION", "0.04"))
+ENABLE_RELEVANCE = os.getenv("ENABLE_RELEVANCE_CHECK", "true").lower() in ("true", "1", "yes")
 ALLOWED = {"JPEG", "PNG", "WEBP"}
 DISEASES = json.loads((BASE / "diseases.json").read_text())
 MODEL_PATH, CLASSES_PATH = ROOT / "models/model.keras", ROOT / "models/class_names.json"
@@ -97,15 +98,26 @@ def get_model():
     return _model, _classes
 
 def validate(img: np.ndarray):
-    """Quality + relevance heuristics. Relevance is a green-pixel check, NOT a trained sugarcane detector."""
+    """Quality + relevance heuristics. Checks resolution, brightness, blur, and agricultural plant tissue."""
     h, w = img.shape[:2]
     if min(h, w) < MIN_SIDE: return "low_quality", "Image resolution is too low."
     g = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     if not MIN_BRIGHT < g.mean() < MAX_BRIGHT: return "low_quality", "Image is too dark or too bright."
     if cv2.Laplacian(g, cv2.CV_64F).var() < MIN_BLUR: return "low_quality", "Image is too blurry."
-    hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
-    veg = ((hsv[..., 0] > 20) & (hsv[..., 0] < 95) & (hsv[..., 1] > 40)).mean()
-    if veg < MIN_GREEN: return "not_relevant", "This does not appear to be a suitable sugarcane leaf image."
+
+    if ENABLE_RELEVANCE and MIN_PLANT > 0:
+        hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+        # Green leaf vegetation (healthy or partial foliage)
+        green = (hsv[..., 0] >= 20) & (hsv[..., 0] <= 95) & (hsv[..., 1] > 30)
+        # Sugarcane stalk, cane fiber, drying leaves & chlorosis (yellow / tan tones)
+        cane_tan = (hsv[..., 0] >= 10) & (hsv[..., 0] < 25) & (hsv[..., 1] > 15)
+        # Disease lesions & Red Rot (red, maroon, rust pustules, necrotic lesions)
+        disease_tones = ((hsv[..., 0] < 12) | (hsv[..., 0] > 165)) & (hsv[..., 1] > 25) & (hsv[..., 2] > 30)
+
+        plant_fraction = float((green | cane_tan | disease_tones).mean())
+        if plant_fraction < MIN_PLANT:
+            return "not_relevant", "This does not appear to be a suitable sugarcane leaf, plant, or stalk image."
+
     return None, None
 
 def analyze_bytes(name: str, data: bytes, uid: int):
